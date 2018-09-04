@@ -25,6 +25,6 @@ npm start-prod
 
 ```bash
 # Run your API & MongoDB first then
-docker build --build-arg EMPLOYEE_API="http://localhost:8000" --build-arg COMPANY_API="http://localhost:8080" -t frontend:1.0.0 .
-docker run -e PORT=3000 -p 3000:3000 -t frontend:1.0.0
+docker build -t frontend:1.0.0 .
+docker run -e REACT_APP_EMPLOYEE_API="http://localhost:8000" -e REACT_APP_COMPANY_API="http://localhost:8080" -p 3000:3000 -t frontend:1.0.0
 ```

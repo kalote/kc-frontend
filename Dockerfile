@@ -1,23 +1,19 @@
-FROM node:8-alpine AS buildDep
-WORKDIR /opt/app-root/src
+FROM node:8
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Expose port for service
+EXPOSE 5000
+
+# Copy package.json to image to install dependencies
 COPY package*.json ./
-RUN npm i
 
-FROM node:8-alpine AS buildApp
-ARG COMPANY_API
-ARG EMPLOYEE_API
-WORKDIR /opt/app-root/src
-COPY package.json package.json
-COPY --from=buildDep /opt/app-root/src/node_modules ./node_modules
-COPY public ./public
-COPY src ./src
-RUN printf "REACT_APP_COMPANY_API=$COMPANY_API\nREACT_APP_EMPLOYEE_API=$EMPLOYEE_API" >> .env
-RUN npm run build
+# Install dependencies
+RUN npm install
 
-FROM node:8-alpine
-WORKDIR /opt/app-root/src
-COPY --from=buildApp /opt/app-root/src/build ./build
-COPY --from=buildDep /opt/app-root/src/node_modules ./node_modules
-COPY package.json package.json
-COPY server.js server.js
-CMD [ "npm", "run", "start-prod" ]
+# Copy source code to image
+COPY . .
+
+# Build app and start server from script
+CMD ["/usr/src/app/run"]
