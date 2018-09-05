@@ -40,7 +40,7 @@ spec:
       - env:
         - name: PORT
           value: "3000"
-        image: myprivatereg.azurecr.io/frontend:#{Release.Artifacts.Backend.BuildId}#
+        image: myprivatereg.azurecr.io/frontend:#{Build.BuildId}#
         imagePullPolicy: IfNotPresent
         name: frontend
         ports:
