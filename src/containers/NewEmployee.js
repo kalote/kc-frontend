@@ -53,6 +53,13 @@ export default class NewEmployee extends Component {
     });
   }
 
+  increaseEmployeeCount(compId) {
+    return invokeApi({
+      type: "company",
+      urlParams: `increaseEmployeeCount/${compId}`
+    });
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
@@ -81,6 +88,7 @@ export default class NewEmployee extends Component {
         companyId: this.state.companyId,
         companyName: this.state.companyName
       });
+      await this.increaseEmployeeCount(this.state.companyId);
       this.props.history.push("/");
     } catch (e) {
       alert(e);
