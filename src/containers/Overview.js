@@ -20,7 +20,7 @@ export default class Overview extends Component {
         companies: companies
       });
     } catch (e) {
-      alert(e);
+      console.log(e);
     }
   }
 
