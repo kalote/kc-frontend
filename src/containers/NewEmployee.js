@@ -27,7 +27,7 @@ export default class NewEmployee extends Component {
         companies: comp
       });
     } catch (e) {
-      alert(e);
+      console.log(e);
     }
 
     this.setState({ isLoading: false });
@@ -91,7 +91,7 @@ export default class NewEmployee extends Component {
       await this.increaseEmployeeCount(this.state.companyId);
       this.props.history.push("/");
     } catch (e) {
-      alert(e);
+      console.log(e);
       this.setState({ isLoading: false });
     }
   }

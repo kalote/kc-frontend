@@ -21,7 +21,7 @@ export default class CompanyElmt extends Component {
         employees: employees
       });
     } catch (e) {
-      alert(e);
+      console.log(e);
     }
   }
 
