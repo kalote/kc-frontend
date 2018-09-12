@@ -23,7 +23,7 @@ export default class Home extends Component {
         employees: emp
       });
     } catch (e) {
-      alert(e);
+      console.log(e);
     }
 
     this.setState({ isLoading: false });

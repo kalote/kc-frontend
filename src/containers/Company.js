@@ -25,7 +25,7 @@ export default class Company extends Component {
         ...comp
       });
     } catch (e) {
-      alert(e);
+      console.log(e);
     }
   }
 
@@ -71,7 +71,7 @@ export default class Company extends Component {
       });
       this.props.history.push("/");
     } catch (e) {
-      alert(e);
+      console.log(e);
       this.setState({ isLoading: false });
     }
   }

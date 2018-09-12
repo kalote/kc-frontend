@@ -18,10 +18,10 @@ class App extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-              <RouteNavItem key={1} href="/company">
+              <RouteNavItem key={1} href="/company/new">
                 Create company
               </RouteNavItem>
-              <RouteNavItem key={2} href="/employee">
+              <RouteNavItem key={2} href="/employee/new">
                 Create Employee
               </RouteNavItem>
             </Nav>

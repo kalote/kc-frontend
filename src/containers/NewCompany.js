@@ -49,7 +49,7 @@ export default class NewCompany extends Component {
       });
       this.props.history.push("/");
     } catch (e) {
-      alert(e);
+      console.log(e);
       this.setState({ isLoading: false });
     }
   }
