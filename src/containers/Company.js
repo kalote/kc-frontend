@@ -14,7 +14,7 @@ export default class Company extends Component {
       name: "",
       type: "",
       sector: "",
-      employeeCount: 0
+      employeeNumber: 0
     };
   }
 
@@ -67,7 +67,8 @@ export default class Company extends Component {
       await this.saveCompany({
         name: this.state.name,
         type: this.state.type,
-        sector: this.state.sector
+        sector: this.state.sector,
+        employeeNumber: this.state.employeeNumber
       });
       this.props.history.push("/");
     } catch (e) {
@@ -109,7 +110,7 @@ export default class Company extends Component {
               <ControlLabel>Employee Count</ControlLabel>
               <FormControl
                 readOnly
-                value={this.state.employeeCount}
+                value={this.state.employeeNumber}
                 type="number"
               />
             </FormGroup>

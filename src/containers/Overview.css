@@ -1,0 +1,9 @@
+.show-grid-empty{
+  padding: 80px 0;
+  text-align: center;
+}
+
+.Companies .container{
+  padding: 0;
+  max-width: 1140px;
+}

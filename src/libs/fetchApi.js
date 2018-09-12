@@ -6,16 +6,16 @@ export async function invokeApi({
   urlParams = "",
   body
 }) {
-  body = body ? JSON.stringify(body) : body;
+  body = body ? JSON.stringify(body) : undefined;
   const results = await fetch(`${config.api[type].URL}${urlParams}`, {
     method,
     headers: {
-      'Content-Type': 'Application/JSON'
+      'content-type': 'application/json'
     },
     body
   });
 
-  if (results.status !== 200) {
+  if (results.status === 500) {
     throw new Error(await results.text());
   }
 
